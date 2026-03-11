@@ -1,0 +1,254 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BitList </title>
+    <link rel="icon" type="image/svg" href="assets/images/game-controller.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bitlist.css">
+
+    <style>
+        #btn {
+          width: 120px;
+          cursor: pointer;
+          transition: transform .15s cubic-bezier(.25,1.5,.5,1);
+        }
+        .jump { transform: translateY(-20px); }
+        .squash { transform: translateY(0) scaleY(.9); }
+    </style>
+</head>
+
+<body>
+
+
+<header id="mainHeader">
+
+    <div class="header-left">
+        <h2 class="logo">BitList</h2>
+        <img id="gameboy" src="assets/images/gameboy1.png" alt="gameboy">
+    </div>
+
+   
+    <nav class="navigation">
+        <a href="bitlist.html">Home</a>
+        <a href="list.html">Create List</a>
+        <a href="forum.html">Forum</a>
+        <a href="#">About</a>
+        <button class="btnLogin-popup">Login</button>
+    </nav>
+</header>
+
+
+<div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+
+
+<div class="side-menu" id="sideMenu">
+    <nav class="side-nav">
+        <a href="#">Home</a>
+        <a href="list.html">Create List</a>
+        <a href="forum.html">Forum</a>
+        <a href="#">About</a>
+        <button class="btnLogin-popup">Login</button>
+    </nav>
+</div>
+
+<!--  GAMEBOY  -->
+<audio id="s1" src="assets/audio/Mario-coin-sound.mp3"></audio>
+<audio id="s2" src="assets/audio/Super Mario Bros. - 1-UP Mushroom Sound Effect.mp3"></audio>
+
+<script>
+let c = 0, gameboy = document.getElementById("gameboy"),
+    s1 = document.getElementById("s1"),
+    s2 = document.getElementById("s2");
+
+gameboy.onclick = () => {
+  c++;
+  gameboy.className = "jump";
+  (c >= 10 ? s2 : s1).play();
+
+  if (c === 10) gameboy.src = "assets/images/gameboy2.png";
+
+  setTimeout(() => gameboy.className = "squash", 120);
+  setTimeout(() => gameboy.className = "", 220);
+};
+</script>
+
+<!--  LOGIN Start -->
+<div class="wrapper">
+    <span class="icon-close"><ion-icon name="close-sharp"></ion-icon></span>
+
+    <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail-sharp"></ion-icon></span>
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed-sharp"></ion-icon></span>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login-register">
+                <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person-sharp"></ion-icon></span>
+                <input type="text" required>
+                <label>Username</label>
+            </div> 
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail-sharp"></ion-icon></span>
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed-sharp"></ion-icon></span>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Agree to the terms & conditions</label>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-register">
+                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- LOGIN end -->
+
+
+<h2 class="Welcome">BitList</h2>
+<br>
+<h3 class="descreption">Your own personal game library</h3>
+
+<div style="height: 60px;"></div>
+
+<div class="carousel">
+    <img id="carousel-image" src="" alt="Game Art">
+    <div class="carousel-title" id="carousel-title"></div>
+</div>
+
+<!-- CAROUSEL end -->
+
+<div style="height: 80px;"></div>
+
+
+<!-- FEATURED -->
+<section class="featured-games-section">
+
+    <h2 class="featured-games-title">Featured Games</h2>
+
+    <div class="featured-games-list">
+
+        <div class="featured-game">
+            <img src="assets/images/Clair_Obscur,_Expedition_33_Cover_1.webp.png" alt="obscur">
+            <div class="featured-game-info">
+                <h3>Clair Obscur: Expedition 33</h3>
+                <p>
+                    Clair Obscur: Expedition 33 is a dark fantasy, turn-based RPG set in a world where a divine being called the Paintress erases people of a certain age each year, forcing doomed expeditions to destroy her.
+                </p>
+            </div>
+        </div>
+
+        <div class="featured-game">
+            <img src="assets/images/Death_Stranding_2_Icon.jpg" alt="Game Title">
+            <div class="featured-game-info">
+                <h3>Death Stranding 2: On the Beach</h3>
+                <p>
+                    Death Stranding 2: On the Beach follows Sam Porter Bridges years after the first game as he's pulled from a quiet life with his daughter Lou to embark on a new mission: connecting Australia to the Chiral Network with Fragile's new company, Drawbridge, facing threats from otherworldly entities and the returning antagonist, Higgs.
+                </p>
+            </div>
+        </div>
+
+        <div class="featured-game">
+            <img src="assets/images/silksong.png" alt="Game Title">
+            <div class="featured-game-info">
+                <h3>Hollow Knight: Silksong</h3>
+                <p>
+                    Hollow Knight: Silksong is a challenging 2D Metroidvania sequel where you play as Hornet, a swift insect warrior, exploring the new kingdom of Pharloom after being captured and brought there.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<p class="featured">
+     Played any of these? <a href="list.html">Add them to your list ✎</a> 
+</p>
+
+
+
+
+<div style="height: 60px;"></div>
+<section class="about-section">
+
+    <h2 class="about-title">About Us</h2>
+
+    <div class="about-content">
+
+        <hr class="about-divider">
+
+        <div class="about-block">
+            <h3>What we strive for</h3>
+            <p>
+                ╎ ↸𝙹リℸ ̣ ꖌリ𝙹∴ ∴⍑ᔑℸ ̣ ℸ ̣𝙹 ∴∷╎⊣⍑ℸ ̣ ⍑ᒷ∷ᒷ ᓭ𝙹 ⍑ᔑ⍊ᒷ ℸ ̣⍑╎ᓭ ꖎ╎ℸ ̣ℸ ̣ꖎᒷ ᓭℸ ̣𝙹∷|| : "∴⍑𝙹’ᓭ ⋮𝙹ᒷ?" ᔑ ↸╎ᓭℸ ̣ᔑリℸ ̣ ⍊𝙹╎ᓵᒷ ᔑᓭꖌᓭ.
+
+                ╎リᓭℸ ̣ᔑリℸ ̣ꖎ|| ᒷ⍊ᒷ∷||𝙹リᒷ リᒷᔑ∷ʖ|| ⍑ᒷᔑ∷ᓭ ℸ ̣⍑ᒷ ᓭ𝙹⚍リ↸ 𝙹⎓ 1,000ᓭ 𝙹⎓ ʖ∷╎ᓵꖌᓭ ∷ᔑ!¡╎↸ꖎ|| ᓭ⍑⚍⎓⎓ꖎ╎リ⊣ ℸ ̣𝙹∴ᔑ∷↸ᓭ ⍑╎ᓭ ꖎ𝙹ᓵᔑℸ ̣╎𝙹リ.
+
+                ℸ ̣⍑ᒷ ᒷᔑ∷ℸ ̣⍑ ╎ℸ ̣ᓭᒷꖎ⎓ ᓭᒷᒷᒲᒷ↸ ℸ ̣𝙹 ᓵ∷|| 𝙹⚍ℸ ̣ ╎リ ᔑ⊣𝙹リ||, ⚍リℸ ̣╎ꖎ ⎓╎リᔑꖎꖎ|| ℸ ̣⍑ᒷ ⊣∷𝙹⚍リ↸ ╎ℸ ̣ᓭᒷꖎ⎓ ᓭ!¡ꖎ╎ℸ ̣ 𝙹!¡ᒷリ ᔑリ↸ ᔑ ⍑𝙹∷∷╎⎓╎ᓵ ᓵ∷ᒷᔑℸ ̣⚍∷ᒷ ᓵ∷ᔑ∴ꖎᒷ↸ ⎓∷𝙹ᒲ ℸ ̣⍑ᒷ ⊣∷𝙹⚍リ↸, ᓵ𝙹⍊ᒷ∷ᒷ↸ ╎リ ᒲ⚍ᓵ⚍ᓭ ᔑリ↸ ℸ ̣ᔑ∷.
+
+                ”⋮𝙹ᒷ ᒲ𝙹ᒲᒲᔑ…” ℸ ̣⍑ᒷ ᓵ∷ᒷᔑℸ ̣⚍∷ᒷ ∴⍑╎ᓭ!¡ᒷ∷ᒷ↸.
+
+                ℸ ̣⍑ᒷ ᒲᔑリ ᓵ∷╎ᒷ↸ 𝙹⚍ℸ ̣ ╎リ !¡ᔑ╎リ ᔑᓭ ⍑ᒷ ↸╎ᓭ╎リℸ ̣ᒷ⊣∷ᔑℸ ̣ᒷ↸ ╎リℸ ̣𝙹 ↸⚍ᓭℸ ̣, ᔑリ↸ ℸ ̣⍑ᒷ ∴⍑𝙹ꖎᒷ ∴𝙹∷ꖎ↸ ⎓ᒷꖎꖎ ᓭ╎ꖎᒷリℸ ̣ ╎リ ⎓ᒷᔑ∷.
+
+                "╎ ↸╎↸ ᔑ ꖎ╎ℸ ̣ℸ ̣ꖎᒷ ℸ ̣∷𝙹ꖎꖎ╎リ⊣." ℸ ̣⍑ᒷ ∴∷ᒷℸ ̣ᓵ⍑ᒷ↸ ᓵ∷ᒷᔑℸ ̣⚍∷ᒷ ∷ᒷᒲᔑ∷ꖌᒷ↸ ʖᒷ⎓𝙹∷ᒷ ʖ⚍∷∷𝙹∴╎リ⊣ ʖᔑᓵꖌ ╎リℸ ̣𝙹 ℸ ̣⍑ᒷ ᒷᔑ∷ℸ ̣⍑.
+            </p>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<div class="gif">
+    <img src="assets/images/coin.gif" alt="Pixel coin">
+</div>
+
+<footer>
+    <p>© 2025-2026 BitList</p>
+</footer>
+
+<script src="bitlist.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
